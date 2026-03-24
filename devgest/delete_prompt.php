@@ -8,7 +8,7 @@ $id = $_GET['id'] ?? null;
 if(!$id) header("Location: ../index.php");
 $stmt = $pdo->prepare("SELECT user_id FROM prompts WHERE id=?");
 $stmt->execute([$id]);
-$asset = $stmt->fetch(PDO::FETCH_ASSOC);
+$prompt = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if(!$prompt || !canEditPrompts($prompt['user_id'])){
     die("Access denied");
