@@ -1,11 +1,13 @@
 # DevGenius: Prompt Repository System
 
 ## Overview
+
 DevGenius is a web-based platform to manage, categorize, and share programming and AI prompts. It provides a role-based system with **Admin** and **Developer** access levels. Admins can manage users, categories, and prompts, while developers can create and manage their own prompts.
 
 ---
 
 ## Features
+
 - **User Management**
   - Admins can add, edit, and delete users.
   - Role-based access: Admin or Developer.
@@ -27,6 +29,7 @@ DevGenius is a web-based platform to manage, categorize, and share programming a
 ---
 
 ## Installation
+
 1. Clone the repository:
 ```bash
 git clone <repo-url>
@@ -44,6 +47,7 @@ php -S localhost:8000
 5. Navigate to http://localhost:8000 in your browser.
 
 ## Technologies Used
+
 *   PHP 8+
 *   MySQL
 *   PDO for database access
