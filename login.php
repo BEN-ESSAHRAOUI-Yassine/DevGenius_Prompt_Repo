@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 
-$sql = "SELECT * FROM User_db WHERE username = :username";
+$sql = "SELECT * FROM users WHERE username = :username";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['username'=>$username]);
@@ -40,6 +40,7 @@ $error = "Invalid username or password";
 
 <head>
 <title> DevGenius Solutions:Prompt Repository - Login</title>
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/style.php">
 </head>
 

@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$dbname = "DevGenius_db";
+$dbname = "devgenius_db";
 $user = "root";
 $pasord = "";
 

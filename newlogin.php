@@ -19,6 +19,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <head>
 <title>add new user</title>
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/style.php">
 </head>
 

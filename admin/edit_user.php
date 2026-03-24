@@ -43,6 +43,7 @@ exit;
 <html>
 <head>
     <title>Edit user</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style.php">
 </head>
 <body>

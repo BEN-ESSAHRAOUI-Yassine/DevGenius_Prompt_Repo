@@ -44,6 +44,7 @@ foreach($categories as $cat){
 <html>
 <head>
     <title>Manage Categories</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style.php">
 </head>
 <body>
@@ -64,7 +65,7 @@ foreach($categories as $cat){
         <th>Actions</th>
     </tr>
 
-    <?php foreach($categories as $c): ?>
+    <?php foreach($categoryData as $c): ?>
     <tr>
         <td><?= $c['id'] ?></td>
         <td><?= htmlspecialchars($c['name']) ?></td>

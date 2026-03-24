@@ -36,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 <head>
 
 <title>Add Prompt</title>
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/style.php">
 </head>
 

@@ -19,6 +19,7 @@ $users = $pdo->query("SELECT * FROM users")
 <head>
 
 <title>User Management</title>
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/style.php">
 
 </head>

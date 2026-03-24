@@ -1,0 +1,175 @@
+/* ----- GENERAL ----- */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+h1 { margin-bottom: 10px; }
+h3 { margin: 5px 0; }
+
+.p-welcome {
+    margin: 8px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.p-welcome .username {
+    color: rgb(6, 6, 72);
+    font-weight: bold;
+}
+
+.p-welcome .role {
+    color: rgb(40, 151, 241);
+    font-style: italic;
+}
+
+/* ----- TOOLBAR ----- */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-form input,
+.filter-form select,
+.filter-form button {
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+.btn-add {
+    background: #2ecc71;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.btn-add:hover { background: #27ae60; }
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn-edit:hover { background: #2980b9; }
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn-delete:hover { background: #c0392b; }
+
+/* ----- STATUS BADGES ----- */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.status-approved { background: #2ecc71; }
+.status-deployed { background: #3498db; }
+.status-rejected { background: #e74c3c; }
+
+/* ----- CATEGORY BADGES ----- */
+.category-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ----- PAGINATION ----- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 8px;
+}
+
+.pagination a {
+    padding: 8px 14px;
+    text-decoration: none;
+    color: #3498db;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.pagination a:hover {
+    background: #3498db;
+    color: white;
+}
+
+/* ----- OTHER UI ----- */
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-manage {
+    background:#9b59b6;
+    color:white;
+    padding:10px 16px;
+    border-radius:5px;
+}
+
+.btn-back {
+    background:#7f8c8d;
+    color:white;
+    padding:8px 14px;
+    border-radius:4px;
+}
+
+/* FORM */
+.form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.asset-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.asset-form input,
+.asset-form select,
+.asset-form textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+.btn-submit {
+    background: #2ecc71;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+}
