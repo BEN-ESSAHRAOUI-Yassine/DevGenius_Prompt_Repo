@@ -93,18 +93,20 @@ php -S localhost:8000
 ## UML Diagrams
 
 1. Use Case Diagram
-Actors: Admin, Developer
-Use Cases: Login, Create Prompt, Edit Prompt, Delete Prompt, Manage Users, Manage Categories, View Dashboard
+
+*   Actors: Admin, Developer
+*   Use Cases: Login, Create Prompt, Edit Prompt, Delete Prompt, Manage Users, Manage Categories, View Dashboard
 
 2. Class Diagram
 
-Classes:
-User (id, username, email, password, role)
-Category (id, name)
-Prompt (id, title, content, status, category_id, user_id)
-Auth (login, logout)
-Role (permission checks)
-Database (connection)
+*   Classes:
+
+    *   User (id, username, email, password, role)
+    *   Category (id, name)
+    *   Prompt (id, title, content, status, category_id, user_id)
+    *   Auth (login, logout)
+    *   Role (permission checks)
+    *   Database (connection)
 
 3. Activity Diagram
 
