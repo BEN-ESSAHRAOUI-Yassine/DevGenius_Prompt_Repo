@@ -49,7 +49,8 @@ $error = "Invalid username or password";
 <div class="login-container">
     <form method="POST" class="login-form">
         <div class="login-header">
-            <h1>DevGenius Solutions:Prompt Repository</h1>
+            <h1>DevGenius Solutions: Prompt Repository</h1>
+            <br>
             <h2>L O G I N   P A G E</h2>
         </div>
         <?php if($error): ?>
