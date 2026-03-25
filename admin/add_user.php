@@ -9,6 +9,9 @@ die("Access denied");
 }
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
+    
+$username=$_POST['username'];
+$email=$_POST['email'];
 
 if(empty($username) || empty($email) || empty($_POST['password'])){
     die("All fields required");
@@ -17,8 +20,7 @@ if(empty($username) || empty($email) || empty($_POST['password'])){
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
     die("Invalid email");
 }
-$username=$_POST['username'];
-$email=$_POST['email'];
+
 $password1=password_hash($_POST['password'],PASSWORD_DEFAULT);
 $role=$_POST['role'];
 
