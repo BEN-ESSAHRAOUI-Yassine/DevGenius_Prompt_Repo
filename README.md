@@ -144,7 +144,7 @@ This ensures the .sql file inside your repo is used to set up the database corre
 
 ### 4. Sequence Diagram
 
-![DevGenius Sequence Diagram](assets/imgs/Diagram_sequence.png)
+![DevGenius Sequence Diagram](Assets/imgs/Diagram_sequence.png)
 ---------------------------------------------------------------------------------------------------------------
 
 ## Security Measures
