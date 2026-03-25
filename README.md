@@ -41,15 +41,15 @@ Follow these steps to set up the project locally:
 
 #### 1. Start XAMPP
 
-    *   Open the XAMPP Control Panel and start Apache and MySQL.
+*   Open the XAMPP Control Panel and start Apache and MySQL.
 
 #### 2. Clone the repository inside htdocs
 
-    *   Open a VSCode terminal or Git Bash and navigate to XAMPP’s htdocs folder:
+*   Open a VSCode terminal or Git Bash and navigate to XAMPP’s htdocs folder:
 ```bash
 cd C:\xampp\htdocs
 ```
-    *   Clone your repository:
+*   Clone your repository:
 ```bash
 git clone https://github.com/BEN-ESSAHRAOUI-Yassine/DevGenius_Prompt_Repo.git
 ```
