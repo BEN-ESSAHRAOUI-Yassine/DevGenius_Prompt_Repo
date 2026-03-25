@@ -5,13 +5,21 @@ require '../auth/db.php';
 require '../auth/role.php';
 
 if(!canManageUsers()){
-die("Access denied");
+    die("Access denied");
 }
 
-$id=$_GET['id'];
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-$stmt=$pdo->prepare("DELETE FROM users WHERE id=:id");
-$stmt->execute(['id'=>$id]);
+    $id = $_POST['id'] ?? null;
+
+    if(!$id){
+        header("Location: users.php");
+        exit;
+    }
+
+    $stmt = $pdo->prepare("DELETE FROM users WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+}
 
 header("Location: users.php");
 exit;
