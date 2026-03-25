@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = 'Developper'; // default role
 
-    $stmt = $pdo->prepare("INSERT INTO User_db(username,email,password,his_role)
+    $stmt = $pdo->prepare("INSERT INTO users (username,email,password,his_role)
                            VALUES(?,?,?,?)");
     $stmt->execute([$username,$email,$password,$role]);
 

@@ -12,7 +12,7 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL,
 password VARCHAR(200) NOT NULL,
-his_role ENUM('Admin','developper') DEFAULT 'developper',
+his_role ENUM('Admin','Developper') DEFAULT 'Developper',
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -30,10 +30,10 @@ CREATE TABLE IF NOT EXISTS prompts (
 
 INSERT INTO users (username, email, password, his_role) VALUES
 ('ShadowDrake', 'shadowdrake@email.com', '$2y$10$C/gMqdZbARRGmnjFIYiM/.1Jh0wVyNJvtvQ0O34fG6mFOviQTkzEq', 'Admin'), /*dragon123*/
-('LunarWizard', 'lunarwizard@email.com', '$2y$10$YkW6C51zTZlb043ZZb2s6ujjOeKEFJ5YWomRjZhokdhlnycLPJihW', 'developper'), /*moonmagic*/
-('IronKnight', 'ironknight@email.com', '$2y$10$jywqEIwj3uhS1a2NizJMtumxQ1hHmnhSO.kSGEHEPuhG.tn000.y6', 'developper'), /*sword456*/
-('FrostPhoenix', 'frostphoenix@email.com', '$2y$10$Nm1D4ZyB6gATJKadzQmTiOxe.tPQEwrvptOuJjdpClKW2UL5AzCUe', 'developper'), /*icefire789*/
-('MysticRanger', 'mysticranger@email.com', '$2y$10$IYLj7N9zgovbRR8JpdwT6Oe95PBeITwU3Un6.beOExiQt.ypeKate', 'developper'); /*forest999*/
+('LunarWizard', 'lunarwizard@email.com', '$2y$10$YkW6C51zTZlb043ZZb2s6ujjOeKEFJ5YWomRjZhokdhlnycLPJihW', 'Developper'), /*moonmagic*/
+('IronKnight', 'ironknight@email.com', '$2y$10$jywqEIwj3uhS1a2NizJMtumxQ1hHmnhSO.kSGEHEPuhG.tn000.y6', 'Developper'), /*sword456*/
+('FrostPhoenix', 'frostphoenix@email.com', '$2y$10$Nm1D4ZyB6gATJKadzQmTiOxe.tPQEwrvptOuJjdpClKW2UL5AzCUe', 'Developper'), /*icefire789*/
+('MysticRanger', 'mysticranger@email.com', '$2y$10$IYLj7N9zgovbRR8JpdwT6Oe95PBeITwU3Un6.beOExiQt.ypeKate', 'Developper'); /*forest999*/
 
 INSERT INTO categories (name) VALUES
 ('Code'),
