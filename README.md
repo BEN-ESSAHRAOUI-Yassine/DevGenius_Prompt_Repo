@@ -97,17 +97,17 @@ php -S localhost:8000
 
 1. Use Case Diagram
 
-![DevGenius Use Case Diagram](assets/imgs/Diagram_Use_Case.png)
+![DevGenius Use Case Diagram](Assets/imgs/Diagram_Use_Case.png)
 ---------------------------------------------------------------------------------------------------------------
 
 2. Class Diagram
 
-![DevGenius Class Diagram](assets/imgs/Diagram_Class.png)
+![DevGenius Class Diagram](Assets/imgs/Diagram_Class.png)
 ---------------------------------------------------------------------------------------------------------------
 
 3. Activity Diagram
 
-![DevGenius Activity Diagram](assets/imgs/Activity_Diagram.png)
+![DevGenius Activity Diagram](Assets/imgs/Activity_Diagram.png)
 ---------------------------------------------------------------------------------------------------------------
 
 4. Sequence Diagram
