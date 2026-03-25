@@ -4,7 +4,7 @@ function isAdmin() {
 }
 
 function isDevelopper() {
-    return $_SESSION['role'] === 'Developper';
+    return isset($_SESSION['role']) && $_SESSION['role'] === 'Developper';
 }
 
 function canEditPrompts($ownerId = null){
