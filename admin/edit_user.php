@@ -61,7 +61,7 @@ exit;
 
 <select name="role">
 
-<option value="Admin" <?= $user['his_role']=='Admin'?'selected':'' ?>>Admin</option>
+<option value="Admin" <?= $user['role']=='Admin'?'selected':'' ?>>Admin</option>
 <option value="Developper" <?= $user['role']=='Developper'?'selected':'' ?>>Developper</option>
 
 </select>

@@ -58,7 +58,7 @@ INSERT INTO prompts (title, content, user_id, category_id, status) VALUES
 ('Reusable components', 'Create reusable PHP components for forms and tables.', 1, 1, 'Approved'),
 ('Landing page copy', 'Write a high-converting landing page for a SaaS product.', 5, 2, 'Approved'),
 ('Email campaign', 'Generate a persuasive email marketing campaign.', 2, 2, 'Approved'),
-('SEO blog ideas', 'Suggest SEO-friendly blog post ideas for developers.', 4, 2, 'Approved'),
+('SEO blog ideas', 'Suggest SEO-friendly blog post ideas for developpers.', 4, 2, 'Approved'),
 ('Product description', 'Write engaging product descriptions for a tech store.', 3, 2, 'Approved'),
 ('CTA optimization', 'Improve call-to-action buttons for conversions.', 1, 2, 'Approved'),
 ('Brand storytelling', 'Create a compelling brand story for a startup.', 5, 2, 'Deployed'),

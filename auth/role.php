@@ -1,6 +1,6 @@
 <?php
 function isAdmin() {
-    return $_SESSION['role'] === 'Admin';
+    return isset($_SESSION['role']) && $_SESSION['role'] === 'Admin';
 }
 
 function isDevelopper() {
@@ -28,7 +28,7 @@ function canManageCategories(){
 }
 
 function isOwner($prompt) {
-    return isAdmin() || (isDevelopper() && $prompt['Developper_id'] == $_SESSION['user_id']);
+    return isAdmin() || (isDevelopper() && $prompt['user_id'] == $_SESSION['user_id']);
 }
 
 function canModeratePrompts(){

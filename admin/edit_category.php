@@ -6,7 +6,10 @@ require '../auth/role.php';
 if(!canManageUsers()) die("Access denied");
 
 $id = $_GET['id'] ?? null;
-if(!$id) header("Location: categories.php");
+if(!$id) {
+    header("Location: categories.php");
+    exit;
+}
 
 $stmt = $pdo->prepare("SELECT * FROM categories WHERE id=?");
 $stmt->execute([$id]);
