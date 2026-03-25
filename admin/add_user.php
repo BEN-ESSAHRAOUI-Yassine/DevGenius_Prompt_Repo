@@ -15,7 +15,7 @@ $email=$_POST['email'];
 $password1=password_hash($_POST['password'],PASSWORD_DEFAULT);
 $role=$_POST['role'];
 
-$sql="INSERT INTO users(username,email,password,his_role)
+$sql="INSERT INTO users(username,email,password,role)
 VALUES(:u,:e,:p,:r)";
 
 $stmt=$pdo->prepare($sql);
@@ -62,7 +62,7 @@ exit;
 <select name="role">
 
 <option value="Admin">Admin</option>
-<option value="developper">Developper</option>
+<option value="Developper">Developper</option>
 
 </select>
 

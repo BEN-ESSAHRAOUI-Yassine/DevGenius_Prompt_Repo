@@ -21,7 +21,7 @@ $email=$_POST['email'];
 $role=$_POST['role'];
 
 $sql="UPDATE users
-SET email=:email, his_role=:role
+SET email=:email, role=:role
 WHERE id=:id";
 
 $stmt=$pdo->prepare($sql);
@@ -62,7 +62,7 @@ exit;
 <select name="role">
 
 <option value="Admin" <?= $user['his_role']=='Admin'?'selected':'' ?>>Admin</option>
-<option value="developper" <?= $user['his_role']=='developper'?'selected':'' ?>>Developper</option>
+<option value="Developper" <?= $user['role']=='Developper'?'selected':'' ?>>Developper</option>
 
 </select>
 

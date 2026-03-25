@@ -20,7 +20,7 @@ if($user && password_verify($password,$user['password'])){
 
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['username'] = $user['username'];
-$_SESSION['role'] = $user['his_role'];
+$_SESSION['role'] = $user['role'];
 
 header("Location: index.php");
 exit;

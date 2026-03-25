@@ -11,7 +11,7 @@ $order    = $_GET['order'] ?? 'ASC';
 $page     = $_GET['page'] ?? 1;
 
 /* ---------- SORT SECURITY ---------- */
-$allowedSort = ['title','status','created_at','category_name','developer'];
+$allowedSort = ['title','status','created_at','category_name','Developper'];
 if (!in_array($sort,$allowedSort)) $sort = 'created_at';
 $order = ($order === 'DESC') ? 'DESC' : 'ASC';
 
@@ -23,7 +23,7 @@ $offset = ($page - 1) * $limit;
 /* ---------- QUERY ---------- */
 $sql = "SELECT prompts.*, 
                categories.name AS category_name,
-               users.username AS developer
+               users.username AS Developper
         FROM prompts
         INNER JOIN categories ON prompts.category_id = categories.id
         INNER JOIN users ON prompts.user_id = users.id
@@ -44,7 +44,7 @@ if ($category !== '') {
 }
 
 /* SORT FIX (alias mapping) */
-if($sort === 'developer'){
+if($sort === 'Developper'){
     $sort = 'users.username';
 }
 if($sort === 'category_name'){
@@ -182,7 +182,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
         <th>Content</th>
         <th><?= sortLink('status','Status',$sort,$order,$queryBase) ?></th>
         <th><?= sortLink('category_name','Category',$sort,$order,$queryBase) ?></th>
-        <th><?= sortLink('developer','Developer',$sort,$order,$queryBase) ?></th>
+        <th><?= sortLink('Developper','Developper',$sort,$order,$queryBase) ?></th>
         <th><?= sortLink('created_at','Date',$sort,$order,$queryBase) ?></th>
         <th>Actions</th>
     </tr>
@@ -208,7 +208,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
     </span>
     </td>
 
-    <td><?= htmlspecialchars($p['developer']) ?></td>
+    <td><?= htmlspecialchars($p['Developper']) ?></td>
 
     <td><?= $p['created_at'] ?></td>
 

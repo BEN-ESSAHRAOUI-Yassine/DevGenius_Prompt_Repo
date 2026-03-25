@@ -55,7 +55,7 @@ $users = $pdo->query("SELECT * FROM users")
 
 <td><?= htmlspecialchars($u['email']) ?></td>
 
-<td><?= htmlspecialchars($u['his_role']) ?></td>
+<td><?= htmlspecialchars($u['role']) ?></td>
 
 <td><?= htmlspecialchars($u['created_at']) ?></td>
 

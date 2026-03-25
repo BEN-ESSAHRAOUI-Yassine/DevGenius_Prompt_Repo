@@ -10,14 +10,14 @@ if(!isAdmin()){
 // Fetch categories
 $categories = $pdo->query("SELECT * FROM categories")->fetchAll(PDO::FETCH_ASSOC);
 
-// Prepare data: total prompts & most active developer for each category
+// Prepare data: total prompts & most active Developper for each category
 $categoryData = [];
 foreach($categories as $cat){
     // Total prompts in category
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM prompts WHERE category_id = ?");
     $stmt->execute([$cat['id']]);
     $totalPrompts = $stmt->fetchColumn();
-    // Most active developer in category
+    // Most active Developper in category
     $stmt = $pdo->prepare("
         SELECT user_id, COUNT(*) AS cnt, u.username 
         FROM prompts p
@@ -60,8 +60,8 @@ foreach($categories as $cat){
         <th>ID</th>
         <th>Category</th>
         <th>Total Prompts</th>
-        <th>Most Active Developer</th>
-        <th>Prompts by Developer</th>
+        <th>Most Active Developper</th>
+        <th>Prompts by Developper</th>
         <th>Actions</th>
     </tr>
 
