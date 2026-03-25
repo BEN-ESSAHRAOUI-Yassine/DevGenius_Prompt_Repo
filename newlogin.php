@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <div class="login-container">
     <form method="POST" class="login-form">
         <div class="login-header">
-            <h2>R E G I S T E R   N E W   U S E R</h2>
+            <h2>REGISTER NEW USER</h2>
         </div>
         <input name="username" placeholder="Username" required>
         <input name="email" placeholder="Email" required>

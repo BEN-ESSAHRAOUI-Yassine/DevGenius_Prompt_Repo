@@ -61,7 +61,10 @@ $error = "Invalid username or password";
         <input type="password" name="password" placeholder="Password" required>
 
         <button type="submit">LOGIN</button>
-
+        <br><br>
+        <a href="newlogin.php" class="btn-back" style="display:block; text-align:center;">
+            Create New Account
+        </a>
     </form>
 </div>
 

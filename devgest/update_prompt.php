@@ -4,10 +4,6 @@ require '../auth/db.php';
 require '../auth/auth.php';
 require '../auth/role.php';
 
-if(!canEditPrompts()){
-    die("Access denied");
-}
-
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
@@ -19,12 +15,11 @@ if (!$id) {
 $stmt = $pdo->prepare("SELECT * FROM prompts WHERE id=?");
 $stmt->execute([$id]);
 $prompt = $stmt->fetch(PDO::FETCH_ASSOC);
-
 if(!$prompt) die("Prompt not found");
 
 /* ---------- OWNER CHECK ---------- */
 if(!canEditPrompts($prompt['user_id'])) {
-    die("Access denied");
+    die(" Access denied");
 }
 
 /* ---------- STATUS CONTROL ---------- */
