@@ -30,12 +30,6 @@ DevGenius is a web-based platform to manage, categorize, and share programming a
 
 ## Installation
 
-4. Start your PHP server:
-```bash
-php -S localhost:8000
-```
-5. Navigate to http://localhost:8000 in your browser.
-
 Follow these steps to set up the project locally:
 
 ### Prerequisites
@@ -75,7 +69,7 @@ $dbname = "devgenius_db";
 
     *   Open your browser and go to:
 ```bash
-http://localhost/your-repo
+http://localhost/DevGenius_Prompt_Repo/
 ```
 This ensures the .sql file inside your repo is used to set up the database correctly.
 
