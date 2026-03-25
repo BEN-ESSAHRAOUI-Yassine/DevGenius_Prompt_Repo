@@ -132,7 +132,7 @@ This ensures the .sql file inside your repo is used to set up the database corre
 ![DevGenius Use Case Diagram](Assets/imgs/Diagram_Use_Case.png)
 ---------------------------------------------------------------------------------------------------------------
 
-### 2. Class Diagram
+### 2. Something like Class Diagram
 
 ![DevGenius Class Diagram](Assets/imgs/Diagram_Class.png)
 ---------------------------------------------------------------------------------------------------------------
