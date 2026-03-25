@@ -72,6 +72,9 @@ php -S localhost:8000
         ├── style.css
         ├── style.php
     └── 📁imgs
+        ├── Activity_Diagram.png
+        ├── Diagram_Class.png
+        └── Diagram_Use_Case.png
 └── 📁auth                              # Authentication & database connection
     ├── auth.php
     ├── db.php
@@ -94,24 +97,18 @@ php -S localhost:8000
 
 1. Use Case Diagram
 
-*   Actors: Admin, Developer
-*   Use Cases: Login, Create Prompt, Edit Prompt, Delete Prompt, Manage Users, Manage Categories, View Dashboard
+![DevGenius Use Case Diagram](assets/imgs/Diagram_Use_Case.png)
+---------------------------------------------------------------------------------------------------------------
 
 2. Class Diagram
 
-*   Classes:
-
-    *   User (id, username, email, password, role)
-    *   Category (id, name)
-    *   Prompt (id, title, content, status, category_id, user_id)
-    *   Auth (login, logout)
-    *   Role (permission checks)
-    *   Database (connection)
+![DevGenius Class Diagram](assets/imgs/Diagram_Class.png)
+---------------------------------------------------------------------------------------------------------------
 
 3. Activity Diagram
 
-Adding a new prompt:
-User logs in → selects "Add Prompt" → fills form → submits → validation → saved to database → redirected to dashboard.
+![DevGenius Activity Diagram](assets/imgs/Activity_Diagram.png)
+---------------------------------------------------------------------------------------------------------------
 
 4. Sequence Diagram
 
