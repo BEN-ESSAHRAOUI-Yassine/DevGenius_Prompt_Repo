@@ -95,22 +95,22 @@ php -S localhost:8000
 
 ## UML Diagrams
 
-1. Use Case Diagram
+### 1. Use Case Diagram
 
 ![DevGenius Use Case Diagram](Assets/imgs/Diagram_Use_Case.png)
 ---------------------------------------------------------------------------------------------------------------
 
-2. Class Diagram
+### 2. Class Diagram
 
 ![DevGenius Class Diagram](Assets/imgs/Diagram_Class.png)
 ---------------------------------------------------------------------------------------------------------------
 
-3. Activity Diagram
+### 3. Activity Diagram
 
 ![DevGenius Activity Diagram](Assets/imgs/Activity_Diagram.png)
 ---------------------------------------------------------------------------------------------------------------
 
-4. Sequence Diagram
+### 4. Sequence Diagram
 
 Create Prompt Sequence:
 Developer → Add Prompt Page → validates form → Prompt Model → Database → store → redirect → Dashboard.
