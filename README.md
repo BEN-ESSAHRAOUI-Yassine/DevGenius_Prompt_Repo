@@ -54,20 +54,20 @@ cd C:\xampp\htdocs
 git clone https://github.com/BEN-ESSAHRAOUI-Yassine/DevGenius_Prompt_Repo.git
 ```
 #### 3. Create and import the database
-    *   Open phpMyAdmin
-    *   Click Import, choose the **schema.sql** file inside the database folder of your repo, and execute the import
+*   Open phpMyAdmin
+*   Click Import, choose the **schema.sql** file inside the database folder of your repo, and execute the import
 #### 4. Configure the project
 
-    *   Open the configuration file db.php and set your database credentials:
-
+*   Open the configuration file db.php and set your database credentials:
+```bash
 $host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "devgenius_db";
-
+```
 #### 5. Access the project
 
-    *   Open your browser and go to:
+*   Open your browser and go to:
 ```bash
 http://localhost/DevGenius_Prompt_Repo/
 ```
@@ -75,15 +75,15 @@ This ensures the .sql file inside your repo is used to set up the database corre
 
 ## Technologies Used
 
-    *    PHP (Core PHP with PDO for database access)
-    *    MySQL (Relational database with foreign keys & constraints)
-    *     HTML5 (Structure of all views and forms)
-    *    CSS3 (Custom styling + dynamic CSS generated via PHP)
-    *    XAMPP (Apache server & MySQL for local development)
-    *    Git (Version control)
-    *    PHP Sessions (Authentication & user state management)
-    *    Password Hashing (bcrypt via password_hash / password_verify)
-    *    Role-Based Access Control (Admin / Developer permissions system)
+*    PHP (Core PHP with PDO for database access)
+*    MySQL (Relational database with foreign keys & constraints)
+*     HTML5 (Structure of all views and forms)
+*    CSS3 (Custom styling + dynamic CSS generated via PHP)
+*    XAMPP (Apache server & MySQL for local development)
+*    Git (Version control)
+*    PHP Sessions (Authentication & user state management)
+*    Password Hashing (bcrypt via password_hash / password_verify)
+*    Role-Based Access Control (Admin / Developer permissions system)
 
 ## Directory Structure
 
