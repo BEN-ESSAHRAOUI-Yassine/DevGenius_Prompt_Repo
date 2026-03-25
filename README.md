@@ -77,7 +77,7 @@ This ensures the .sql file inside your repo is used to set up the database corre
 
 *    PHP (Core PHP with PDO for database access)
 *    MySQL (Relational database with foreign keys & constraints)
-*     HTML5 (Structure of all views and forms)
+*    HTML5 (Structure of all views and forms)
 *    CSS3 (Custom styling + dynamic CSS generated via PHP)
 *    XAMPP (Apache server & MySQL for local development)
 *    Git (Version control)
