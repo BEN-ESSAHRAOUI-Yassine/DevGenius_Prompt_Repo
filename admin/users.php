@@ -41,6 +41,7 @@ $users = $pdo->query("SELECT * FROM users")
 <th>Username</th>
 <th>Email</th>
 <th>Role</th>
+<th>Status</th>
 <th>Created at</th>
 <th>Actions</th>
 </tr>
@@ -57,6 +58,12 @@ $users = $pdo->query("SELECT * FROM users")
 
 <td><?= htmlspecialchars($u['role']) ?></td>
 
+<td>
+    <span class="status-badge <?= $u['status']=='Enabled' ? 'status-approved' : 'status-rejected' ?>">
+        <?= $u['status'] ?>
+    </span>
+</td>
+
 <td><?= htmlspecialchars($u['created_at']) ?></td>
 
 <td class="actions">
@@ -65,16 +72,11 @@ $users = $pdo->query("SELECT * FROM users")
 Edit
 </a>
 
-<form method="POST" action="delete_user.php" 
-      onsubmit="return confirm('Delete this user?')" 
-      style="display:inline;">
-
+<form method="POST" action="toggle_user.php" style="display:inline;">
     <input type="hidden" name="id" value="<?= $u['id'] ?>">
-
-    <button type="submit" class="btn-delete">
-        Delete
+    <button class="btn-delete">
+        <?= $u['status']=='Enabled' ? 'Disable' : 'Enable' ?>
     </button>
-
 </form>
 
 </td>

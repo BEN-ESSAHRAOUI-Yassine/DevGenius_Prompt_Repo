@@ -22,11 +22,11 @@ CREATE TABLE IF NOT EXISTS prompts (
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     user_id INT,
-    category_id INT,
+    category_id INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status ENUM('Approved','Rejected','Deployed') DEFAULT 'Approved',
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET DEFAULT 0
+    FOREIGN KEY (category_id) REFERENCES categories(id) 
 );
 
 INSERT INTO users (username, email, password, role, status) VALUES
