@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
-    $stmt = $pdo->prepare("UPDATE users SET status='Disabled' WHERE id = :id"); //DELETE FROM users WHERE id = :id
+    $stmt = $pdo->prepare("DELETE FROM users WHERE id = :id"); 
     $stmt->execute(['id' => $id]);
 }
 
