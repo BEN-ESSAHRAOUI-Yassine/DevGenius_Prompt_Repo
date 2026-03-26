@@ -12,8 +12,9 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(100) NOT NULL UNIQUE,
 email VARCHAR(100) NOT NULL UNIQUE,
 password VARCHAR(200) NOT NULL,
-role ENUM('Admin','Developper') DEFAULT 'Developper',
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+role ENUM('Admin','Developper') DEFAULT 'Developper' NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+status ENUM('Enabled','Disabled') DEFAULT 'Enabled' NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS prompts (
@@ -24,26 +25,27 @@ CREATE TABLE IF NOT EXISTS prompts (
     category_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status ENUM('Approved','Rejected','Deployed') DEFAULT 'Approved',
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET DEFAULT 0
 );
 
-INSERT INTO users (username, email, password, role) VALUES
-('ShadowDrake', 'shadowdrake@email.com', '$2y$10$C/gMqdZbARRGmnjFIYiM/.1Jh0wVyNJvtvQ0O34fG6mFOviQTkzEq', 'Admin'), /*dragon123*/
-('LunarWizard', 'lunarwizard@email.com', '$2y$10$YkW6C51zTZlb043ZZb2s6ujjOeKEFJ5YWomRjZhokdhlnycLPJihW', 'Developper'), /*moonmagic*/
-('IronKnight', 'ironknight@email.com', '$2y$10$jywqEIwj3uhS1a2NizJMtumxQ1hHmnhSO.kSGEHEPuhG.tn000.y6', 'Developper'), /*sword456*/
-('FrostPhoenix', 'frostphoenix@email.com', '$2y$10$Nm1D4ZyB6gATJKadzQmTiOxe.tPQEwrvptOuJjdpClKW2UL5AzCUe', 'Developper'), /*icefire789*/
-('MysticRanger', 'mysticranger@email.com', '$2y$10$IYLj7N9zgovbRR8JpdwT6Oe95PBeITwU3Un6.beOExiQt.ypeKate', 'Developper'); /*forest999*/
+INSERT INTO users (username, email, password, role, status) VALUES
+('ShadowDrake', 'shadowdrake@email.com', '$2y$10$C/gMqdZbARRGmnjFIYiM/.1Jh0wVyNJvtvQ0O34fG6mFOviQTkzEq', 'Admin','Enabled'), /*dragon123*/
+('LunarWizard', 'lunarwizard@email.com', '$2y$10$YkW6C51zTZlb043ZZb2s6ujjOeKEFJ5YWomRjZhokdhlnycLPJihW', 'Developper','Enabled'), /*moonmagic*/
+('IronKnight', 'ironknight@email.com', '$2y$10$jywqEIwj3uhS1a2NizJMtumxQ1hHmnhSO.kSGEHEPuhG.tn000.y6', 'Developper','Enabled'), /*sword456*/
+('FrostPhoenix', 'frostphoenix@email.com', '$2y$10$Nm1D4ZyB6gATJKadzQmTiOxe.tPQEwrvptOuJjdpClKW2UL5AzCUe', 'Developper','Enabled'), /*icefire789*/
+('MysticRanger', 'mysticranger@email.com', '$2y$10$IYLj7N9zgovbRR8JpdwT6Oe95PBeITwU3Un6.beOExiQt.ypeKate', 'Developper','Enabled'); /*forest999*/
 
-INSERT INTO categories (name) VALUES
-('Code'),
-('Marketing'),
-('DevOps'),
-('SQL'),
-('UI/UX'),
-('Testing'),
-('AI'),
-('Security');
+INSERT INTO categories (id ,name) VALUES
+(0,'Uncategorised'),
+(1,'Code'),
+(2,'Marketing'),
+(3,'DevOps'),
+(4,'SQL'),
+(5,'UI/UX'),
+(6,'Testing'),
+(7,'AI'),
+(8,'Security');
 
 INSERT INTO prompts (title, content, user_id, category_id, status) VALUES
 ('Build secure login system', 'Create a secure authentication system in PHP using PDO, sessions, and password hashing.', 3, 1, 'Approved'),

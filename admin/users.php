@@ -61,9 +61,10 @@ $users = $pdo->query("SELECT * FROM users")
 
 <td class="actions">
 
-<a href="edit_user.php?id=<?= $u['id'] ?>" class="btn-edit">
-Edit
-</a>
+<form method="POST" action="edit_user.php" style="display:inline;">
+    <input type="hidden" name="id" value="<?= $u['id'] ?>">
+    <button class="btn-edit">Edit</button>
+</form>
 
 <form method="POST" action="delete_user.php" 
       onsubmit="return confirm('Delete this user?')" 

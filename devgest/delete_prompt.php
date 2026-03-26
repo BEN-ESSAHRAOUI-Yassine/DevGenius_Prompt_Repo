@@ -3,8 +3,8 @@
 require '../auth/auth.php';
 require '../auth/db.php';
 require '../auth/role.php';
-
-$id = $_GET['id'] ?? null;
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$id = $_POST['id'] ?? null;
 if(!$id) header("Location: ../index.php");
 $stmt = $pdo->prepare("SELECT user_id FROM prompts WHERE id=?");
 $stmt->execute([$id]);
@@ -16,6 +16,6 @@ if(!$prompt || !canEditPrompts($prompt['user_id'])){
 
 $del = $pdo->prepare("DELETE FROM prompts WHERE id=?");
 $del->execute([$id]);
-
+}
 header("Location: ../index.php");
 exit();

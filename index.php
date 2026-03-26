@@ -216,7 +216,15 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 
     <?php if(canEditPrompts($p['user_id'])): ?>
     <a href="devgest/update_prompt.php?id=<?= $p['id'] ?>" class="btn-edit">Edit</a>
-    <a href="devgest/delete_prompt.php?id=<?= $p['id'] ?>" class="btn-delete" onclick="return confirm('Delete this prompt?')">Delete</a>
+    <form method="POST" action="devgest/delete_prompt.php"
+        onsubmit="return confirm('Delete this prompt?')" 
+        style="display:inline;">
+
+        <input type="hidden" name="id" value="<?= $p['id'] ?>">
+
+        <button type="submit" class="btn-delete">Delete</button>
+
+    </form>
     <?php endif; ?>
 
     </td>

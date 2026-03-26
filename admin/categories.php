@@ -74,8 +74,14 @@ foreach($categories as $cat){
         <td><?= htmlspecialchars($c['most_active_count']) ?></td>
         <td class="actions">
             <a href="edit_category.php?id=<?= $c['id'] ?>" class="btn-edit">Edit</a>
-            <a href="delete_category.php?id=<?= $c['id'] ?>" class="btn-delete"
-            onclick="return confirm('Delete this category?')">Delete</a>
+            <form method="POST" action="delete_category.php" 
+                onsubmit="return confirm('Delete this category?')" 
+                style="display:inline;">
+
+                <input type="hidden" name="id" value="<?= $c['id'] ?>">
+
+                <button type="submit" class="btn-delete">Delete</button>
+            </form>
         </td>
     </tr>
     <?php endforeach; ?>

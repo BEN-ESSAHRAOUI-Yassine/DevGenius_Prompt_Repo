@@ -5,7 +5,8 @@ require '../auth/role.php';
 
 if(!canManageUsers()) die("Access denied");
 
-$id = $_GET['id'] ?? null;
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$id = $_POST['id'] ?? null;
 if(!$id) {
     header("Location: categories.php");
     exit;
@@ -13,6 +14,6 @@ if(!$id) {
 
 $del = $pdo->prepare("DELETE FROM categories WHERE id=?");
 $del->execute([$id]);
-
+}
 header("Location: categories.php");
 exit();
