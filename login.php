@@ -63,7 +63,7 @@ if($user && password_verify($password,$user['password'])){
 
         <button type="submit">LOGIN</button>
         <br><br>
-        <a href="newlogin.php" class="btn-back" style="display:block; text-align:center;">
+        <a href="register.php" class="btn-back" style="display:block; text-align:center;">
             Create New Account
         </a>
     </form>

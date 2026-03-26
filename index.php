@@ -6,6 +6,7 @@ require 'auth/role.php';
 /* ---------- PARAMETERS ---------- */
 $search   = $_GET['search'] ?? '';
 $category = $_GET['category'] ?? '';
+$developer = $_GET['developer'] ?? '';
 $page     = $_GET['page'] ?? 1;
 /* ---------- SORT SYSTEM ---------- */
 $sortMap = [
@@ -52,6 +53,10 @@ if ($category !== '') {
     $sql .= " AND prompts.category_id = :category";
     $params['category'] = $category;
 }
+if ($developer !== '') {
+    $sql .= " AND prompts.user_id = :developer";
+    $params['developer'] = $developer;
+}
 /* Sorting + Pagination */
 $sql .= " ORDER BY $sqlSort $order
           LIMIT :limit OFFSET :offset";
@@ -85,7 +90,10 @@ if ($category !== '') {
     $filteredSql .= " AND category_id = :category";
     $filteredParams['category'] = $category;
 }
-
+if ($developer !== '') {
+    $filteredSql .= " AND user_id = :developer";
+    $filteredParams['developer'] = $developer;
+}
 $filteredStmt = $pdo->prepare($filteredSql);
 $filteredStmt->execute($filteredParams);
 $filteredPrompts = $filteredStmt->fetchColumn();
@@ -101,12 +109,18 @@ $totalPages = ceil($filteredPrompts / $limit);
 /* ---------- LOAD CATEGORIES ---------- */
 $categories = $pdo->query("SELECT * FROM categories")
                   ->fetchAll(PDO::FETCH_ASSOC);
+$developers = $pdo->query("
+    SELECT DISTINCT users.id, users.username
+    FROM users
+    INNER JOIN prompts ON users.id = prompts.user_id
+    ORDER BY users.username ASC
+")->fetchAll(PDO::FETCH_ASSOC);
 
 /* ---------- BUILD BASE QUERY ---------- */
 $queryBase = http_build_query([
     'search' => $search,
     'category' => $category,
-    'page' => $page
+    'developer' => $developer
 ]);
 
 /* ---------- SORT LINK FUNCTION ---------- */
@@ -169,6 +183,14 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
             <?php foreach ($categories as $c): ?>
                 <option value="<?= $c['id'] ?>" <?= ($category==$c['id'])?'selected':'' ?>>
                     <?= htmlspecialchars($c['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <select name="developer">
+            <option value="">All Developers</option>
+            <?php foreach ($developers as $d): ?>
+                <option value="<?= $d['id'] ?>" <?= ($developer==$d['id'])?'selected':'' ?>>
+                    <?= htmlspecialchars($d['username']) ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -240,7 +262,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 <!-- Pagination -->
 <div class="pagination">
 <?php for ($i=1;$i<=$totalPages;$i++): ?>
-<a href="?search=<?= $search ?>&category=<?= $category ?>&sort=<?= $_GET['sort'] ?? 'title' ?>&order=<?= $order ?>&page=<?= $i ?>"
+<a href="?search=<?= $search ?>&category=<?= $category ?>&developer=<?= $developer ?>&sort=<?= $_GET['sort'] ?? 'title' ?>&order=<?= $order ?>&page=<?= $i ?>"
 <?= ($i==$page)?'class="active"':'' ?>>
 <?= $i ?>
 </a>
