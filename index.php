@@ -6,15 +6,25 @@ require 'auth/role.php';
 /* ---------- PARAMETERS ---------- */
 $search   = $_GET['search'] ?? '';
 $category = $_GET['category'] ?? '';
-$sort     = $_GET['sort'] ?? 'title';
-$order    = $_GET['order'] ?? 'ASC';
 $page     = $_GET['page'] ?? 1;
+/* ---------- SORT SYSTEM ---------- */
+$sortMap = [
+    'title' => 'prompts.title',
+    'status' => 'prompts.status',
+    'created_at' => 'prompts.created_at',
+    'category_name' => 'categories.name',
+    'Developper' => 'users.username'
+];
 
-/* ---------- SORT SECURITY ---------- */
-$allowedSort = ['title','status','created_at','category_name','Developper'];
-if (!in_array($sort,$allowedSort)) $sort = 'created_at';
-$order = ($order === 'DESC') ? 'DESC' : 'ASC';
+$sort = $_GET['sort'] ?? 'created_at';
 
+if(!array_key_exists($sort, $sortMap)){
+    $sort = 'created_at';
+}
+
+$order = ($_GET['order'] ?? 'ASC') === 'DESC' ? 'DESC' : 'ASC';
+
+$sqlSort = $sortMap[$sort];
 /* ---------- PAGINATION ---------- */
 $limit  = 10;
 $page   = max(1,(int)$page);
@@ -42,17 +52,8 @@ if ($category !== '') {
     $sql .= " AND prompts.category_id = :category";
     $params['category'] = $category;
 }
-
-/* SORT FIX (alias mapping) */
-if($sort === 'Developper'){
-    $sort = 'users.username';
-}
-if($sort === 'category_name'){
-    $sort = 'categories.name';
-}
-
 /* Sorting + Pagination */
-$sql .= " ORDER BY $sort $order
+$sql .= " ORDER BY $sqlSort $order
           LIMIT :limit OFFSET :offset";
 
 /* Execute query */
@@ -214,7 +215,10 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 
     <td class="actions">
 
-    <?php if(canEditPrompts($p['user_id'])): ?>
+    <?php if(
+    canEditPrompts($p['user_id']) &&
+    !(isDevelopper() && $p['status'] === 'Deployed')
+    ): ?>
     <a href="devgest/update_prompt.php?id=<?= $p['id'] ?>" class="btn-edit">Edit</a>
     <form method="POST" action="devgest/delete_prompt.php"
         onsubmit="return confirm('Delete this prompt?')" 

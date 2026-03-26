@@ -19,7 +19,12 @@ if(!$prompt) die("Prompt not found");
 
 /* ---------- OWNER CHECK ---------- */
 if(!canEditPrompts($prompt['user_id'])) {
-    die(" Access denied");
+    die("Access denied");
+}
+
+// Prevent Developper from editing deployed prompts
+if(isDevelopper() && $prompt['status'] === 'Deployed'){
+    die("You cannot edit a deployed prompt");
 }
 
 /* ---------- STATUS CONTROL ---------- */
@@ -42,7 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST['title'] ?? '');
     $content = trim($_POST['content'] ?? '');
     $category = $_POST['category'] ?? '';
-    $status = $_POST['status'] ?? '';
+    if(isAdmin()){
+        $status = $_POST['status'] ?? '';
+    } else {
+        $status = $prompt['status']; // keep original
+    }
 
     /* ---------- VALIDATION ---------- */
     if($title === '') $errors[] = "Title required";
@@ -50,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if($category === '') $errors[] = "Category required";
 
     /* SECURITY: enforce allowed statuses */
-    if(!in_array($status, $statuses)){
+    if(isAdmin() && !in_array($status, $statuses)){
         $errors[] = "Invalid status selection";
     }
 

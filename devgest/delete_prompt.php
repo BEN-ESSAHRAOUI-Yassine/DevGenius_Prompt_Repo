@@ -10,8 +10,18 @@ $stmt = $pdo->prepare("SELECT user_id FROM prompts WHERE id=?");
 $stmt->execute([$id]);
 $prompt = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if(!$prompt || !canEditPrompts($prompt['user_id'])){
+if(!$prompt){
+    die("Prompt not found");
+}
+
+// Role + ownership check
+if(!canEditPrompts($prompt['user_id'])){
     die("Access denied");
+}
+
+// 🚫 Prevent Developper from deleting deployed prompts
+if(isDevelopper() && $prompt['status'] === 'Deployed'){
+    die("You cannot delete a deployed prompt");
 }
 
 $del = $pdo->prepare("DELETE FROM prompts WHERE id=?");
