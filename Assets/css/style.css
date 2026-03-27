@@ -456,3 +456,17 @@ table tr:hover {
     border-radius: 6px;
     margin-top: 15px;
 }
+
+.prompt-row {
+    cursor: pointer;
+}
+
+.expand-content {
+    background: #f4f8ff;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+}
+
+.prompt-row:hover {
+    background: #eef3ff;
+}

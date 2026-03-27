@@ -199,6 +199,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 </div>
 
 <!-- Table -->
+
 <table>
     <tr>
         <th><?= sortLink('title','Title',$sort,$order,$queryBase) ?></th>
@@ -214,9 +215,11 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
     $statusClass = strtolower(str_replace(' ','-',$p['status']));
     ?>
 
-    <tr>
+    <tr class="prompt-row"
+    data-title="<?= htmlspecialchars($p['title']) ?>"
+    data-content="<?= htmlspecialchars($p['content']) ?>">
     <td><?= htmlspecialchars($p['title']) ?></td>
-
+    
     <td><?= htmlspecialchars(substr($p['content'],0,80)) ?>...</td>
 
     <td>
@@ -255,7 +258,9 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 
     </td>
     </tr>
-
+    <tr class="expand-row" style="display:none;">
+    <td colspan="7" class="expand-content"></td>
+    </tr>
     <?php endforeach; ?>
 </table>
 
@@ -268,6 +273,40 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 </a>
 <?php endfor; ?>
 </div>
+<script>
+document.querySelectorAll('.prompt-row').forEach(row => {
+    row.addEventListener('click', function(e) {
 
+        // Ignore clicks on buttons/links
+        if(e.target.closest('a, button, form')) return;
+
+        const expandRow = this.nextElementSibling;
+
+        // Toggle same row
+        if(expandRow.style.display === 'table-row'){
+            expandRow.style.display = 'none';
+            expandRow.querySelector('.expand-content').innerHTML = '';
+            return;
+        }
+
+        // Close all other rows
+        document.querySelectorAll('.expand-row').forEach(r => {
+            r.style.display = 'none';
+            r.querySelector('.expand-content').innerHTML = '';
+        });
+
+        // Get data
+        const title = this.dataset.title;
+        const content = this.dataset.content;
+
+        // Show expanded content
+        expandRow.style.display = 'table-row';
+        expandRow.querySelector('.expand-content').innerHTML = `
+            <strong>${title}</strong><br><br>
+            ${content}
+        `;
+    });
+});
+</script>
 </body>
 </html>
