@@ -113,7 +113,7 @@ This ensures the .sql file inside your repo is used to set up the database corre
 └── index.php                           # Dashboard & main page
 └── login.php                           # Login logic
 └── logout.php                          # Logout logic
-└── newlogin.php                        # create new account logic
+└── register.php                        # create new account logic
 └── README.md
 
 ```
@@ -129,3 +129,160 @@ This ensures the .sql file inside your repo is used to set up the database corre
 Admin role is required for user and category management.
 Developers can only manage prompts they own.
 Dynamic CSS classes are generated based on categories for consistent UI colors.
+
+## Usage Scenarios
+
+### 1. Developer Journey (Main Flow)
+
+1. Register a new account via the registration page.
+2. Log in using your credentials.
+3. Access the dashboard.
+4. Click **"Add Prompt"**.
+5. Fill in:
+
+   * Title
+   * Content
+   * Category
+6. Submit the prompt.
+7. The prompt appears in the dashboard list.
+8. Use:
+
+   * Search bar (by title/content)
+   * Category filter
+   * Developer filter
+9. Click a prompt to:
+
+   * View details
+   * Copy prompt
+   * Edit (if owner)
+   * Delete (if owner)
+
+---
+
+### 2. Admin Workflow
+
+1. Log in as Admin.
+2. Access:
+
+   * **Manage Users**
+   * **Manage Categories**
+3. Perform actions:
+
+   * Create / Edit / Delete users
+   * Enable / Disable users
+   * Create / Edit / Delete categories
+4. Monitor:
+
+   * Number of prompts per category
+   * Most active developer per category
+5. Moderate prompts:
+
+   * Change status (Approved / Rejected / Deployed)
+
+---
+
+### 3. Prompt Management Lifecycle
+
+1. Developer creates a prompt → default status: **Approved**
+2. Admin can:
+
+   * Approve
+   * Reject
+   * Deploy
+3. Once **Deployed**:
+
+   * Developers cannot edit it anymore
+
+---
+
+### 4. Search & Filtering
+
+Users can refine results using:
+
+* Keyword search (title + content)
+* Category filter
+* Developer filter
+* Sorting (title, date, status, etc.)
+* Pagination for large datasets
+
+## Advanced Features
+
+* 🔎 Multi-criteria search (title + content + category + developer)
+* 📊 Pagination system for large datasets
+* 🔃 Dynamic sorting (ASC / DESC on multiple fields)
+* 🎨 Dynamic category color system (generated via PHP)
+* 📋 Copy-to-clipboard functionality for prompts
+* 🔐 Role-based permissions system (Admin vs Developer)
+* 🚦 Prompt status workflow (Approved / Rejected / Deployed)
+
+## Database Design
+
+The application uses a relational database with 3 main tables:
+
+* **users**
+
+  * Stores user credentials, roles, and status
+* **categories**
+
+  * Stores prompt categories
+* **prompts**
+
+  * Stores prompt content and metadata
+
+### Relationships
+
+* Each prompt belongs to:
+
+  * One user (`user_id`)
+  * One category (`category_id`)
+
+* Foreign keys ensure:
+
+  * Data integrity
+  * Consistent relationships between tables
+
+### Example
+
+* A developer creates a prompt → linked to their user ID
+* A category groups multiple prompts
+
+## Test Accounts
+
+You can use the following pre-seeded accounts to test the application:
+
+| Role      | Username     | Password   | Status  |
+| --------- | ------------ | ---------- | ------- |
+| Admin     | ShadowDrake  | dragon123  | Enabled |
+| Developer | LunarWizard  | moonmagic  | Enabled |
+| Developer | IronKnight   | sword456   | Enabled |
+| Developer | FrostPhoenix | icefire789 | Enabled |
+| Developer | MysticRanger | forest999  | Enabled |
+> ⚠️ These accounts are for development/testing purposes only.
+### Notes
+
+* The **Admin account** has full access:
+
+  * Manage users
+  * Manage categories
+  * Moderate prompts
+* **Developers** can:
+
+  * Create prompts
+  * Edit/delete their own prompts
+* All passwords are hashed in the database using `password_hash()`.
+
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard Screenshot](assets/imgs/dashboard.png)
+
+### Users Panel for admin only
+
+![Users Panel Screenshot](assets/imgs/user-panel.png)
+
+### Category Panel for admin only
+
+![Category Panel Screenshot](assets/imgs/category-panel.png)
+
