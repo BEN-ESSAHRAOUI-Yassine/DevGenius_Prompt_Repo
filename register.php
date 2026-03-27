@@ -32,10 +32,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <input name="username" placeholder="Username" required>
         <input name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Register</button>
+        <button type="submit" class="action-btn btn-submit">Register</button>
     </form>
 </div>
-<a href="login.php" class="btn-back">Back</a>
+<a href="login.php" class="action-btn btn-back">Back</a>
 
 </body>
 

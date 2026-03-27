@@ -1,6 +1,7 @@
 <?php
 require '../auth/db.php';
 require '../auth/auth.php';
+require '../auth/role.php';
 
 $id = $_GET['id'] ?? null;
 
@@ -41,33 +42,76 @@ if(!$prompt){
     <h1><?= htmlspecialchars($prompt['title']) ?></h1>
 
     <p><strong>Content:</strong></p>
-    <p><?= nl2br(htmlspecialchars($prompt['content'])) ?></p>
+    <div class="content-box">
+        <?= nl2br(htmlspecialchars($prompt['content'])) ?>
+    </div>
 
     <br>
 
-    <p><strong>Status:</strong> 
-        <span class="status-badge status-<?= strtolower($prompt['status']) ?>">
-            <?= $prompt['status'] ?>
-        </span>
-    </p>
+    <div class="meta-grid">
 
-    <p><strong>Category:</strong> 
-        <?= htmlspecialchars($prompt['category_name']) ?>
-    </p>
+        <div><strong>Status:</strong><br>
+            <span class="status-badge status-<?= strtolower($prompt['status']) ?>">
+                <?= $prompt['status'] ?>
+            </span>
+        </div>
 
-    <p><strong>Developer:</strong> 
-        <?= htmlspecialchars($prompt['username']) ?>
-    </p>
+        <div><strong>Category:</strong><br>
+            <?= htmlspecialchars($prompt['category_name']) ?>
+        </div>
 
-    <p><strong>Created at:</strong> 
-        <?= $prompt['created_at'] ?>
-    </p>
+        <div><strong>Developer:</strong><br>
+            <?= htmlspecialchars($prompt['username']) ?>
+        </div>
+
+        <div><strong>Created at:</strong><br>
+            <?= $prompt['created_at'] ?>
+        </div>
+
+    </div>
 
     <br>
 
-    <a href="../index.php" class="btn-back">Back</a>
+    <div class="actions" style="margin-top:20px;">
+        <a href="../index.php" class="action-btn btn-back">Back</a>
+        <!-- COPY BUTTON -->
+        <button onclick="copyPrompt()" class="action-btn btn-copy">
+            Copy Prompt
+        </button>
 
+        <?php if(
+            canEditPrompts($prompt['user_id']) &&
+            !(isDevelopper() && $prompt['status'] === 'Deployed')
+        ): ?>
+
+            <!-- EDIT -->
+            <a href="update_prompt.php?id=<?= $prompt['id'] ?>" class="action-btn btn-edit"> Edit prompt</a>
+
+            <!-- DELETE -->
+            <form method="POST" action="delete_prompt.php"
+                onsubmit="return confirm('Delete this prompt?')"
+                style="display:inline;">
+
+                <input type="hidden" name="id" value="<?= $prompt['id'] ?>">
+                <button type="submit" class="action-btn btn-delete">Delete Prompt</button>
+
+            </form>
+
+        <?php endif; ?>
+
+    </div>
 </div>
+<script>
+function copyPrompt(){
+    const title = <?= json_encode($prompt['title']) ?>;
+    const content = <?= json_encode($prompt['content']) ?>;
 
+    const text = `PROMPT TITLE: ${title}\n\nPROMPT CONTENT: ${content}`;
+
+    navigator.clipboard.writeText(text)
+        .then(() => alert("Copied to clipboard!"))
+        .catch(err => console.error(err));
+}
+</script>
 </body>
 </html>

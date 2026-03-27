@@ -49,8 +49,8 @@ foreach($categories as $cat){
 </head>
 <body>
 <h1>Categories Overview</h1>
-<a href="../index.php" class="btn-back">← Back to Dashboard</a>
-<a href="add_category.php" class="btn-add">Add Category</a>
+<a href="../index.php" class="action-btn btn-back">← Back to Dashboard</a>
+<a href="add_category.php" class="action-btn btn-add">Add Category</a>
 <br><br>
 
 
@@ -73,7 +73,7 @@ foreach($categories as $cat){
         <td><?= htmlspecialchars($c['most_active_dev']) ?></td>
         <td><?= htmlspecialchars($c['most_active_count']) ?></td>
         <td class="actions">
-            <a href="edit_category.php?id=<?= $c['id'] ?>" class="btn-edit">Edit</a>
+            <a href="edit_category.php?id=<?= $c['id'] ?>" class="action-btn btn-edit">Edit</a>
             <?php if($c['id'] != 0): ?>
             <form method="POST" action="delete_category.php" 
                 onsubmit="return confirm('Delete this category?')" 
@@ -81,7 +81,7 @@ foreach($categories as $cat){
 
                 <input type="hidden" name="id" value="<?= $c['id'] ?>">
 
-                <button type="submit" class="btn-delete">Delete</button>
+                <button type="submit" class="action-btn btn-delete">Delete</button>
             </form>
             <?php endif; ?>
         </td>

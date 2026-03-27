@@ -52,7 +52,7 @@ exit;
 <body>
 <h2>Add User</h2>
 
-<a href="users.php" class="btn-back">← Back to Users</a>
+<a href="users.php" class="action-btn btn-back">← Back to Users</a>
 
 <form method="POST">
 
@@ -77,7 +77,7 @@ exit;
 
 <br><br>
 
-<button>Create User</button>
+<button class="action-btn btn-submit">Create User</button>
 
 </form>
 </body>

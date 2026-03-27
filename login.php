@@ -61,9 +61,9 @@ if($user && password_verify($password,$user['password'])){
         <input name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
 
-        <button type="submit">LOGIN</button>
+        <button type="submit" class="action-btn btn-submit">LOGIN</button>
         <br><br>
-        <a href="register.php" class="btn-back" style="display:block; text-align:center;">
+        <a href="register.php" class="action-btn btn-submit" style="display:block; text-align:center;">
             Create New Account
         </a>
     </form>

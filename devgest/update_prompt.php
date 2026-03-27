@@ -138,11 +138,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </select>
         <?php endif; ?>
 
-        <button type="submit" class="btn-submit">Update</button>
+        <button type="submit" class="action-btn btn-submit">Update</button>
 
     </form>
 
-    <a href="../index.php" class="btn-back">Back</a>
+    <a href="../index.php" class="action-btn btn-back">Back</a>
 
 </div>
 

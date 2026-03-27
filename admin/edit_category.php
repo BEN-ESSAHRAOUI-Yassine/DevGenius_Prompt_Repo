@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 <form method="POST" class="form-container asset-form">
     <input name="name" value="<?= htmlspecialchars($_POST['name'] ?? $category['name']) ?>">
-    <button class="btn-submit">Update Category</button>
+    <button class="action-btn btn-submit">Update Category</button>
 </form>
 
 <?php if(!empty($errors)): ?>
@@ -53,6 +53,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </div>
 <?php endif; ?>
 
-<a href="categories.php" class="btn-back">Back</a>
+<a href="categories.php" class="action-btn btn-back">Back</a>
 </body>
 </html>

@@ -42,6 +42,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </div>
 <?php endif; ?>
 
-<a href="categories.php" class="btn-back">Back</a>
+<a href="categories.php" class="action-btn btn-back">Back</a>
 </body>
 </html>

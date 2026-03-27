@@ -53,7 +53,7 @@ exit;
 <body>
 <h2>Edit User</h2>
 
-<a href="users.php" class="btn-back">← Back to Users</a>
+<a href="users.php" class="action-btn btn-back">← Back to Users</a>
 
 <form method="POST">
 
@@ -72,7 +72,7 @@ exit;
 
 <br><br>
 
-<button>Update User</button>
+<button class="action-btn btn-edit">Update User</button>
 
 </form>
 </body>

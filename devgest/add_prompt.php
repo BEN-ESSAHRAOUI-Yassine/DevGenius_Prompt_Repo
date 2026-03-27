@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
 <?php endif; ?>
 
-<a href="../index.php" class="btn-back">Back</a>
+<a href="../index.php" class="action-btn btn-back">Back</a>
 </div>
 </body>
 </html>

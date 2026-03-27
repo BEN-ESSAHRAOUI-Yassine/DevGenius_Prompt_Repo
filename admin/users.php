@@ -28,9 +28,9 @@ $users = $pdo->query("SELECT * FROM users")
 
 <h1>User Management</h1>
 
-<a href="../index.php" class="btn-back">← Back to Dashboard</a>
+<a href="../index.php" class="action-btn btn-back">← Prompt Dashboard</a>
 
-<a href="add_user.php" class="btn-add">Add User</a>
+<a href="add_user.php" class="action-btn btn-add">Add User</a>
 
 <br><br>
 
@@ -68,13 +68,13 @@ $users = $pdo->query("SELECT * FROM users")
 
 <td class="actions">
 <?php if($u['id'] != 1): ?>
-<a href="edit_user.php?id=<?= $u['id'] ?>" class="btn-edit">
+<a href="edit_user.php?id=<?= $u['id'] ?>" class="action-btn btn-edit">
 Edit
 </a>
 
 <form method="POST" action="toggle_user.php" style="display:inline;">
     <input type="hidden" name="id" value="<?= $u['id'] ?>">
-    <button class="btn-delete">
+    <button class="action-btn btn-delete">
         <?= $u['status']=='Enabled' ? 'Disable' : 'Enable' ?>
     </button>
 </form>

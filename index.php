@@ -146,10 +146,10 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 <br><br>
 <div class="p-welcome">
     Welcome <span class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></span> (<span class="role"><?php echo htmlspecialchars($_SESSION['role']); ?></span>) |
-    <a href="logout.php" class="logout-btn">Logout</a> 
+    <a href="logout.php" class="action-btn logout-btn">Logout</a> 
     <?php if(canManageUsers()): ?>
-    <a href="admin/users.php" class="btn-manage">Manage Users</a>
-    <a href="admin/categories.php" class="btn-manage">Manage Categories</a>
+    <a href="admin/users.php" class="action-btn btn-manage">Manage Users</a>
+    <a href="admin/categories.php" class="action-btn btn-manage">Manage Categories</a>
     <?php endif; ?>
 </div> 
 <br>
@@ -173,7 +173,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 <!-- Toolbar -->
 <div class="toolbar">
     <?php if(canCreatePrompt()): ?>
-    <a href="devgest/add_prompt.php" class="btn-add">Add Prompt</a>
+    <a href="devgest/add_prompt.php" class="action-btn btn-add">Add Prompt</a>
     <?php endif; ?>
 
     <form method="GET" class="filter-form">
@@ -194,7 +194,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
                 </option>
             <?php endforeach; ?>
         </select>
-        <button type="submit">Filter</button>
+        <button class="action-btn btn-submit" type="submit">Filter</button>
     </form>
 </div>
 
@@ -207,7 +207,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
         <th><?= sortLink('category_name','Category',$sort,$order,$queryBase) ?></th>
         <th><?= sortLink('Developper','Developper',$sort,$order,$queryBase) ?></th>
         <th><?= sortLink('created_at','Date',$sort,$order,$queryBase) ?></th>
-        <th>Actions</th>
+        
     </tr>
 
     <?php foreach ($prompts as $p): 
@@ -236,26 +236,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 
     <td><?= $p['created_at'] ?></td>
 
-    <td class="actions">
-
-    <?php if(
-    canEditPrompts($p['user_id']) &&
-    !(isDevelopper() && $p['status'] === 'Deployed')
-    ): ?>
-    <a href="devgest/update_prompt.php?id=<?= $p['id'] ?>" class="btn-edit" onclick="event.stopPropagation();">Edit</a>
-    <form method="POST" action="devgest/delete_prompt.php"
-        onclick="event.stopPropagation();"
-        onsubmit="return confirm('Delete this prompt?')" 
-        style="display:inline;">
-
-        <input type="hidden" name="id" value="<?= $p['id'] ?>">
-
-        <button type="submit" class="btn-delete">Delete</button>
-
-    </form>
-    <?php endif; ?>
-
-    </td>
+    
     </tr>
 
     <?php endforeach; ?>
