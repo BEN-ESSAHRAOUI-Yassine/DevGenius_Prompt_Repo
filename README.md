@@ -276,13 +276,13 @@ You can use the following pre-seeded accounts to test the application:
 
 ### Dashboard
 
-![Dashboard Screenshot](assets/imgs/dashboard.png)
+![Dashboard Screenshot](Assets/imgs/dashboard.png)
 
 ### Users Panel for admin only
 
-![Users Panel Screenshot](assets/imgs/user-panel.png)
+![Users Panel Screenshot](Assets/imgs/user-panel.png)
 
 ### Category Panel for admin only
 
-![Category Panel Screenshot](assets/imgs/category-panel.png)
+![Category Panel Screenshot](Assets/imgs/category-panel.png)
 
