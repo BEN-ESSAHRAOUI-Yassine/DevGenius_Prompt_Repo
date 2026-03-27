@@ -173,7 +173,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 <!-- Toolbar -->
 <div class="toolbar">
     <?php if(canCreatePrompt()): ?>
-    <a href="devgest/add_prompt.php" class="action-btn btn-add">Add Prompt</a>
+    <a href="devgest/prompt_form.php?mode=add" class="action-btn btn-add">Add Prompt</a>
     <?php endif; ?>
 
     <form method="GET" class="filter-form">
@@ -214,8 +214,7 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
     $statusClass = strtolower(str_replace(' ','-',$p['status']));
     ?>
 
-    <tr onclick="window.location='devgest/view_prompt.php?id=<?= $p['id'] ?>'"
-    style="cursor:pointer;">
+    <tr class="prompt-row" onclick="window.location='devgest/prompt_form.php?id=<?= $p['id'] ?>&mode=view'">
     <td><?= htmlspecialchars($p['title']) ?></td>
 
     <td><?= htmlspecialchars(substr($p['content'],0,80)) ?>...</td>
