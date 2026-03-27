@@ -214,7 +214,8 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
     $statusClass = strtolower(str_replace(' ','-',$p['status']));
     ?>
 
-    <tr>
+    <tr onclick="window.location='devgest/view_prompt.php?id=<?= $p['id'] ?>'"
+    style="cursor:pointer;">
     <td><?= htmlspecialchars($p['title']) ?></td>
 
     <td><?= htmlspecialchars(substr($p['content'],0,80)) ?>...</td>
@@ -241,8 +242,9 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
     canEditPrompts($p['user_id']) &&
     !(isDevelopper() && $p['status'] === 'Deployed')
     ): ?>
-    <a href="devgest/update_prompt.php?id=<?= $p['id'] ?>" class="btn-edit">Edit</a>
+    <a href="devgest/update_prompt.php?id=<?= $p['id'] ?>" class="btn-edit" onclick="event.stopPropagation();">Edit</a>
     <form method="POST" action="devgest/delete_prompt.php"
+        onclick="event.stopPropagation();"
         onsubmit="return confirm('Delete this prompt?')" 
         style="display:inline;">
 
