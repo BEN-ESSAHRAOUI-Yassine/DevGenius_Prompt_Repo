@@ -144,14 +144,24 @@ function sortLink($column, $label, $sort, $order, $queryBase) {
 <body>
 <h1>DevGenius: Prompt Repository Dashboard</h1>
 <br><br>
-<div class="p-welcome">
-    Welcome <span class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></span> (<span class="role"><?php echo htmlspecialchars($_SESSION['role']); ?></span>) |
-    <a href="logout.php" class="action-btn logout-btn">Logout</a> 
-    <?php if(canManageUsers()): ?>
-    <a href="admin/users.php" class="action-btn btn-manage">Manage Users</a>
-    <a href="admin/categories.php" class="action-btn btn-manage">Manage Categories</a>
-    <?php endif; ?>
-</div> 
+<div class="top-bar">
+    
+    <div class="welcome-text">
+        Welcome 
+        <span class="username"><?= htmlspecialchars($_SESSION['username']); ?></span> 
+        (<span class="role"><?= htmlspecialchars($_SESSION['role']); ?></span>)
+    </div>
+
+    <div class="top-actions">
+        <?php if(canManageUsers()): ?>
+            <a href="admin/users.php" class="action-btn btn-manage">Manage Users</a>
+            <a href="admin/categories.php" class="action-btn btn-manage">Manage Categories</a>
+        <?php endif; ?>
+
+        <a href="logout.php" class="action-btn logout-btn">Logout</a>
+    </div>
+
+</div>
 <br>
 <div class="summary-container">
     <div class="summary-item">

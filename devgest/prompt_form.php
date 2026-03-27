@@ -85,7 +85,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $title = trim($_POST['title'] ?? '');
         $content = trim($_POST['content'] ?? '');
         $category = $_POST['category'] ?? '';
-
+        // ✅ STATUS LOGIC
+        if(isAdmin()){
+            $status = $_POST['status'] ?? $prompt['status'];
+        } else {
+            $status = $prompt['status']; // dev can't change
+        }
         if ($title === '') $errors[] = "Title required";
         if ($content === '') $errors[] = "Content required";
         if ($category === '') $errors[] = "Category required";
@@ -93,10 +98,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($errors)) {
             $stmt = $pdo->prepare("
                 UPDATE prompts 
-                SET title=?, content=?, category_id=?
+                SET title=?, content=?, category_id=?, status=?
                 WHERE id=?
             ");
-            $stmt->execute([$title,$content,$category,$id]);
+            $stmt->execute([$title,$content,$category,$status,$id]);
 
             // return to VIEW mode after update
             header("Location: prompt_form.php?id=$id&mode=view");
@@ -170,7 +175,7 @@ $isReadonly = ($mode === 'view' || $mode === 'delete');
 ><?= htmlspecialchars($_POST['content'] ?? $prompt['content'] ?? '') ?></textarea>
 
 <!-- CATEGORY -->
-<select name="category" <?= $isReadonly ? 'disabled' : '' ?>>
+Category:<select name="category" <?= $isReadonly ? 'disabled' : '' ?>>
     <option value="">Select Category</option>
     <?php foreach ($categories as $c): ?>
         <option value="<?= $c['id'] ?>"
@@ -179,7 +184,19 @@ $isReadonly = ($mode === 'view' || $mode === 'delete');
         </option>
     <?php endforeach; ?>
 </select>
-
+<?php if(isAdmin() && $mode !== 'add'): ?>
+Status:<select name="status" <?= $isReadonly ? 'disabled' : '' ?>>
+    <?php 
+    $statuses = ['Approved','Rejected','Deployed'];
+    foreach($statuses as $s): 
+    ?>
+        <option value="<?= $s ?>"
+            <?= (($prompt['status'] ?? '') === $s) ? 'selected' : '' ?>>
+            <?= $s ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+<?php endif; ?>
 <!-- ========================
      VIEW MODE (INFO)
 ======================== -->
