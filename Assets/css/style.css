@@ -87,7 +87,6 @@ table th {
 table tr:hover {
     background: #f1f1f1;
 }
-
 /* ----- ACTION BUTTONS ----- */
 .actions {
     display: flex;

@@ -10,6 +10,10 @@ die("Access denied");
 
 $id=$_GET['id'];
 
+if(!$id || $id == 1 ){
+        header("Location: users.php");
+        exit;
+}
 $stmt=$pdo->prepare("SELECT * FROM users WHERE id=:id");
 $stmt->execute(['id'=>$id]);
 

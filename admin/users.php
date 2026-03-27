@@ -67,7 +67,7 @@ $users = $pdo->query("SELECT * FROM users")
 <td><?= htmlspecialchars($u['created_at']) ?></td>
 
 <td class="actions">
-
+<?php if($u['id'] != 1): ?>
 <a href="edit_user.php?id=<?= $u['id'] ?>" class="btn-edit">
 Edit
 </a>
@@ -78,7 +78,7 @@ Edit
         <?= $u['status']=='Enabled' ? 'Disable' : 'Enable' ?>
     </button>
 </form>
-
+<?php endif; ?>
 </td>
 
 </tr>

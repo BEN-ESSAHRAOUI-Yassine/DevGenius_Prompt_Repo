@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $id = $_POST['id'] ?? null;
 
-    if(!$id){
+    if(!$id || $id == 1){
         header("Location: users.php");
         exit;
     }
