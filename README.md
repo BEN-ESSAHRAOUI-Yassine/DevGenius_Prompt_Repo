@@ -102,11 +102,6 @@ This ensures the .sql file inside your repo is used to set up the database corre
     └── 📁css
         ├── style.css
         ├── style.php
-    └── 📁imgs
-        ├── Activity_Diagram.png
-        ├── Diagram_Class.png
-        └── Diagram_sequence.png
-        └── Diagram_Use_Case.png
 └── 📁auth                              # Authentication & database connection
     ├── auth.php
     ├── db.php
@@ -114,9 +109,7 @@ This ensures the .sql file inside your repo is used to set up the database corre
 └── 📁Database                          # Database schema & initial data
     └── schema.sql
 └── 📁devgest                           # Developer prompt management
-    ├── add_prompt.php
-    ├── delete_prompt.php
-    └── update_prompt.php
+    └── prompt_form.php
 └── index.php                           # Dashboard & main page
 └── login.php                           # Login logic
 └── logout.php                          # Logout logic
@@ -124,28 +117,6 @@ This ensures the .sql file inside your repo is used to set up the database corre
 └── README.md
 
 ```
-
-## UML Diagrams
-
-### 1. Use Case Diagram
-
-![DevGenius Use Case Diagram](Assets/imgs/Diagram_Use_Case.png)
----------------------------------------------------------------------------------------------------------------
-
-### 2. Something like Class Diagram
-
-![DevGenius Class Diagram](Assets/imgs/Diagram_Class.png)
----------------------------------------------------------------------------------------------------------------
-
-### 3. Activity Diagram
-
-![DevGenius Activity Diagram](Assets/imgs/Activity_Diagram.png)
----------------------------------------------------------------------------------------------------------------
-
-### 4. Sequence Diagram
-
-![DevGenius Sequence Diagram](Assets/imgs/Diagram_sequence.png)
----------------------------------------------------------------------------------------------------------------
 
 ## Security Measures
 *   Password hashing with password_hash().
