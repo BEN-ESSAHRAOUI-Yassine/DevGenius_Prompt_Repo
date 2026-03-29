@@ -271,6 +271,43 @@ You can use the following pre-seeded accounts to test the application:
   * Edit/delete their own prompts
 * All passwords are hashed in the database using `password_hash()`.
 
+## Additional Features & Enhancements
+
+- **Advanced Multi-Criteria Search**  
+  Allows users to search and filter prompts by title, content, category, and developer at the same time, providing a more powerful and flexible way to find relevant data.
+
+- **Pagination System**  
+  Implements LIMIT and OFFSET to efficiently handle large datasets, improving performance and user experience by splitting results into multiple pages.
+
+- **Dynamic Sorting**  
+  Enables sorting by different columns (title, status, category, developer, date) with ascending/descending toggle, making data exploration easier.
+
+- **Role-Based Access Control (RBAC)**  
+  Introduces Admin and Developer roles with specific permissions, ensuring secure and controlled access to features across the application.
+
+- **User Status Management**  
+  Allows administrators to enable or disable user accounts, adding an extra layer of control and moderation.
+
+- **Dashboard Statistics**  
+  Displays key insights such as total prompts, filtered results, and user contributions, helping users quickly understand system activity.
+
+- **Category Analytics**  
+  Provides advanced insights like total prompts per category and the most active developer in each category, enhancing data visibility.
+
+- **Prompt Status Workflow**  
+  Adds a moderation system with statuses (Approved, Rejected, Deployed), allowing better control over prompt lifecycle.
+
+- **Copy-to-Clipboard Feature**  
+  Enables users to quickly copy prompts with one click, improving usability and productivity.
+
+- **Dynamic UI Styling**  
+  Generates category-based styles dynamically using PHP, making the interface more scalable and visually organized.
+
+- **Ownership & Permission Logic**  
+  Ensures that developers can only edit their own prompts and restricts editing of deployed prompts, preserving data integrity.
+
+- **Unified Prompt Management Interface**  
+  Combines add, edit, view, and delete functionalities into a single dynamic form, improving maintainability and reducing code duplication.
 
 ## Screenshots
 
